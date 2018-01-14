@@ -4,7 +4,7 @@ from .models import Post
 
 
 class PostAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('title', 'created')
 
 
 admin.site.register(Post, PostAdmin)

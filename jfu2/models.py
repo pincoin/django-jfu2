@@ -32,14 +32,18 @@ class Attachment(AbstractAttachment):
         on_delete=models.CASCADE,
         verbose_name=_('content type'),
         related_name='%(app_label)s_%(class)s_attachments',
+        null=True,
+        blank=True,
     )
-
-    content_object = GenericForeignKey()
 
     object_id = models.IntegerField(
         verbose_name=_('object id'),
+        null=True,
+        blank=True,
         db_index=True,
     )
+
+    content_object = GenericForeignKey('content_type', 'object_id')
 
     class Meta:
         verbose_name = _('attachment')
