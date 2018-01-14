@@ -154,3 +154,5 @@ fabric.properties
 
 # Django
 db.sqlite3
+assets/
+media/

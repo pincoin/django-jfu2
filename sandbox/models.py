@@ -1,19 +1,20 @@
 from django.db import models
 from django.urls import reverse
+from django.utils.translation import ugettext_lazy as _
 
 
 class Post(models.Model):
     title = models.CharField(
-        verbose_name='title',
+        verbose_name=_('title'),
         max_length=255,
     )
 
     body = models.TextField(
-        verbose_name='content body',
+        verbose_name=_('content body'),
     )
 
     created = models.DateTimeField(
-        verbose_name='created time',
+        verbose_name=_('created time'),
         auto_now_add=True,
     )
 
