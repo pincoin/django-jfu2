@@ -2,16 +2,19 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import (
-    include, path
+    path
 )
 
 from .views import (
-    HomeView, PostListView, PostDetailView, PostCreateView
+    HomeView, PostListView, PostDetailView, PostCreateView, PostFileUploadView
 )
 
 urlpatterns = [
     path('',
          HomeView.as_view(), name='home'),
+
+    path('upload',
+         PostFileUploadView.as_view(), name='post-file-upload'),
 
     path('posts',
          PostListView.as_view(), name='post-list'),
@@ -27,9 +30,6 @@ urlpatterns = [
 
     path('posts/delete/<int:pk>',
          PostDetailView.as_view(), name='post-delete'),
-
-    path('jfu2/',
-         include('jfu2.urls', namespace='jfu')),
 
     path('admin/',
          admin.site.urls),

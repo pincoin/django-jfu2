@@ -2,6 +2,8 @@ from django.db import models
 from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 
+from jfu2.models import AbstractAttachment
+
 
 class Post(models.Model):
     title = models.CharField(
@@ -26,3 +28,14 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return reverse('post-detail', args=[self.pk, ])
+
+
+class Attachment(AbstractAttachment):
+    post = models.ForeignKey(
+        'Post',
+        verbose_name=_('post'),
+        related_name='attachments',
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True,
+    )

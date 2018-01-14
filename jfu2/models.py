@@ -1,4 +1,3 @@
-from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
@@ -24,32 +23,6 @@ class AbstractAttachment(models.Model):
 
     class Meta:
         abstract = True
-
-
-class Attachment(AbstractAttachment):
-    content_type = models.ForeignKey(
-        ContentType,
-        on_delete=models.CASCADE,
-        verbose_name=_('content type'),
-        related_name='%(app_label)s_%(class)s_attachments',
-        null=True,
-        blank=True,
-    )
-
-    object_id = models.IntegerField(
-        verbose_name=_('object id'),
-        null=True,
-        blank=True,
-        db_index=True,
-    )
-
-    content_object = GenericForeignKey('content_type', 'object_id')
-
-    class Meta:
         verbose_name = _('attachment')
         verbose_name_plural = _('attachments')
-        app_label = 'jfu2'
-        index_together = [
-            ["content_type", "object_id"],
-        ]
         ordering = ['-created']

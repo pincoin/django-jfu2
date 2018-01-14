@@ -1,7 +1,7 @@
 $(document).ready(function () {
     $('#id_files').fileupload({
         // A string containing the URL to which the request is sent. (URL pointing Django view)
-        url: '/jfu2/upload',
+        url: '/upload',
 
         // The type of data that is expected back from the server. (default: 'json')
         dataType: 'json',

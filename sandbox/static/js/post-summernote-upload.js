@@ -14,7 +14,7 @@ $(document).ready(function () {
                 // https://github.com/blueimp/jQuery-File-Upload/wiki/API#initialization
                 // Initializes file upload widget
                 $nImageInput.fileupload({
-                    url: '/jfu2/upload'
+                    url: '/upload'
                 });
 
                 // https://github.com/blueimp/jQuery-File-Upload/wiki/API#programmatic-file-upload

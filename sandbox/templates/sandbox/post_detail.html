@@ -11,7 +11,11 @@
             </div>
             <div class="card-footer">
                 <ul>
-
+                    {% for attachment in post.attachments.all %}
+                        <li><a href="{{ attachment.file.url }}">{{ attachment.file.name }}</a></li>
+                    {% empty %}
+                        <li>No files.</li>
+                    {% endfor %}
                 </ul>
             </div>
         </div>

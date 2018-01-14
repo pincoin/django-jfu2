@@ -5,14 +5,22 @@ from django.views.generic.edit import (
     CreateView, UpdateView, DeleteView
 )
 
+from jfu2.views import FileUploadView
 from .forms import (
     PostForm, PostAttachmentForm
 )
-from .models import Post
+from .models import (
+    Attachment, Post
+)
 
 
 class HomeView(TemplateView):
     template_name = 'sandbox/home.html'
+
+
+class PostFileUploadView(FileUploadView):
+    def get_object(self, queryset=None):
+        return Attachment()
 
 
 class PostListView(ListView):
@@ -43,13 +51,11 @@ class PostCreateView(CreateView):
         response = super().form_valid(form)
 
         # Attachments are not related to any post yet.
-        """
         attachments = Attachment.objects.filter(
             pk__in=form.cleaned_data['attachments'],
             post__isnull=True,
         )
         self.object.attachments.set(attachments)
-        """
         return response
 
 

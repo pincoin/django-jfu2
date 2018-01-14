@@ -4,19 +4,10 @@ from django.views.generic.detail import SingleObjectMixin
 from django.views.generic.edit import FormMixin
 
 from .forms import AttachmentForm
-from .models import Attachment
 
 
 class FileUploadView(FormMixin, SingleObjectMixin, View):
     form_class = AttachmentForm
-
-    def get_object(self, queryset=None):
-        """
-        Return the object the view
-
-        Subclasses can override this to return any custom attachment model object.
-        """
-        return Attachment()
 
     def post(self, request, *args, **kwargs):
         form_class = self.get_form_class()
