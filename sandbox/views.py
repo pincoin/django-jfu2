@@ -5,6 +5,9 @@ from django.views.generic.edit import (
     CreateView, UpdateView, DeleteView
 )
 
+from .forms import (
+    PostForm, PostAttachmentForm
+)
 from .models import Post
 
 
@@ -26,6 +29,28 @@ class PostDetailView(DetailView):
 
 class PostCreateView(CreateView):
     model = Post
+    template_name = 'sandbox/post_create.html'
+
+    def get_form_class(self):
+        if self.request.method == 'POST':
+            # Hidden fields for attachments must be validated.
+            return PostAttachmentForm
+        else:
+            # Hidden fields and file input are not prepopulated but appended to form by AJAX.
+            return PostForm
+
+    def form_valid(self, form):
+        response = super().form_valid(form)
+
+        # Attachments are not related to any post yet.
+        """
+        attachments = Attachment.objects.filter(
+            pk__in=form.cleaned_data['attachments'],
+            post__isnull=True,
+        )
+        self.object.attachments.set(attachments)
+        """
+        return response
 
 
 class PostUpdateView(UpdateView):
