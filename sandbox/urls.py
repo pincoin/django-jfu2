@@ -6,7 +6,7 @@ from django.urls import (
 )
 
 from .views import (
-    HomeView, PostListView, PostDetailView, PostCreateView, PostFileUploadView
+    HomeView, PostListView, PostDetailView, PostCreateView, PostUpdateView, PostDeleteView, PostFileUploadView
 )
 
 urlpatterns = [
@@ -26,10 +26,10 @@ urlpatterns = [
          PostCreateView.as_view(), name='post-create'),
 
     path('posts/update/<int:pk>',
-         PostDetailView.as_view(), name='post-update'),
+         PostUpdateView.as_view(), name='post-update'),
 
     path('posts/delete/<int:pk>',
-         PostDetailView.as_view(), name='post-delete'),
+         PostDeleteView.as_view(), name='post-delete'),
 
     path('admin/',
          admin.site.urls),

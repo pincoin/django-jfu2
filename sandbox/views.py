@@ -61,6 +61,15 @@ class PostCreateView(CreateView):
 
 class PostUpdateView(UpdateView):
     model = Post
+    template_name = 'sandbox/post_update.html'
+
+    def get_form_class(self):
+        if self.request.method == 'POST':
+            # Hidden fields for attachments must be validated.
+            return PostAttachmentForm
+        else:
+            # Hidden fields and file input are not prepopulated but appended to form by AJAX.
+            return PostForm
 
 
 class PostDeleteView(DeleteView):
