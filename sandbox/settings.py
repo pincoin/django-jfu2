@@ -105,3 +105,11 @@ STATICFILES_DIRS = [
 ]
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+# JFU2 Settings
+# The content-type header uploaded with the file (e.g. text/plain or application/pdf)
+JFU2_CONTENT_TYPES = ['image', 'video']
+# The allowed file extensions
+JFU2_FILE_EXTENSIONS = ['jpg', 'jpeg', 'gif', 'png']
+# The size, in bytes, of the uploaded file.
+JFU2_MAX_UPLOAD_SIZE = 2621440
