@@ -19,7 +19,11 @@ $(document).ready(function () {
         // Callback for successful upload requests.
         done: function (e, data) {
             $.each(data.result.files, function (index, file) {
-                $("#files ul").append('<li>' + file.pk + ': <a href="' + file.url + '">' + file.name + '</a></li>');
+                $("#files ul").append(
+                    '<li>' + file.pk + ': ' +
+                    '<a href="' + file.url + '">' + file.name + '</a>' +
+                    '</li>'
+                );
             });
         },
 
