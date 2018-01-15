@@ -23,8 +23,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+]
+
+INSTALLED_APPS += [
     'jfu2',
     'crispy_forms',
+    'easy_thumbnails',
     'sandbox',
 ]
 
@@ -99,13 +103,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/assets/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'assets/')
+STATIC_ROOT = os.path.join(BASE_DIR, 'sandbox/assets/')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'sandbox/static/'),
     os.path.join(BASE_DIR, 'jfu2/static/'),
 ]
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'sandbox/media/')
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
