@@ -5,7 +5,7 @@ from django.views.generic.edit import (
     CreateView, UpdateView, DeleteView
 )
 
-from jfu2.views import FileUploadView
+from django_summernote_ajax.views import FileUploadView
 from .forms import (
     PostForm, PostAttachmentForm
 )

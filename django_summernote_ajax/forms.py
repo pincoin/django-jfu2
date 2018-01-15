@@ -15,12 +15,12 @@ class AttachmentForm(forms.Form):
         content_type = content.content_type.split('/')[0]
         extension = splitext(content.name)[1][1:].lower()
 
-        if extension not in settings.JFU2_FILE_EXTENSIONS \
-                or content_type not in settings.JFU2_CONTENT_TYPES:
+        if extension not in settings.DSA_FILE_EXTENSIONS \
+                or content_type not in settings.DSA_CONTENT_TYPES:
             raise forms.ValidationError(_('File type is not supported'))
 
-        if content.size > settings.JFU2_MAX_UPLOAD_SIZE:
+        if content.size > settings.DSA_MAX_UPLOAD_SIZE:
             raise forms.ValidationError(_('Please keep filesize under %s. Current filesize %s') % (
-                filesizeformat(settings.MAX_UPLOAD_SIZE), filesizeformat(content.size)))
+                filesizeformat(settings.DSA_MAX_UPLOAD_SIZE), filesizeformat(content.size)))
 
         return content

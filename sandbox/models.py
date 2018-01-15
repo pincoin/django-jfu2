@@ -2,7 +2,7 @@ from django.db import models
 from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 
-from jfu2.models import AbstractAttachment
+from django_summernote_ajax.models import AbstractAttachment
 
 
 class Post(models.Model):

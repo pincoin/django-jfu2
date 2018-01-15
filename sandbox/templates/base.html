@@ -9,7 +9,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>jfu2 | jQuery-File-Upload on Django</title>
+    <title>Django Summernote Ajax Demo</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
@@ -33,7 +33,7 @@ Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve you
             aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" href="{% url 'home' %}">jfu2</a>
+    <a class="navbar-brand" href="{% url 'home' %}">DSA</a>
     <div class="collapse navbar-collapse" id="navbarToggler">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item dropdown">
@@ -42,6 +42,7 @@ Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve you
                     Blog
                 </a>
                 <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{% url 'post-list' %}">Posts</a>
                     <a class="dropdown-item" href="{% url 'post-create' %}">Write</a>
                     {% if user.is_superuser %}
                         <div class="dropdown-divider"></div>

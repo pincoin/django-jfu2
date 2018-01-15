@@ -23,7 +23,7 @@ INSTALLED_APPS = [
 ]
 
 INSTALLED_APPS += [
-    'jfu2',
+    'django_summernote_ajax',
     'crispy_forms',
     'sandbox',
 ]
@@ -98,7 +98,7 @@ STATIC_URL = '/assets/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'sandbox/assets/')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'sandbox/static/'),
-    os.path.join(BASE_DIR, 'jfu2/static/'),
+    os.path.join(BASE_DIR, 'django_summernote_ajax/static/'),
 ]
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'sandbox/media/')
@@ -107,11 +107,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'sandbox/media/')
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-# JFU2 Settings
+# Django Summernote Ajax Settings
 
 # The content-type header uploaded with the file (e.g. text/plain or application/pdf)
-JFU2_CONTENT_TYPES = ['image', 'video']
+DSA_CONTENT_TYPES = ['image', 'video']
 # The allowed file extensions
-JFU2_FILE_EXTENSIONS = ['jpg', 'jpeg', 'gif', 'png']
+DSA_FILE_EXTENSIONS = ['jpg', 'jpeg', 'gif', 'png']
 # The size, in bytes, of the uploaded file. (default: 2MB)
-JFU2_MAX_UPLOAD_SIZE = 2097152
+DSA_MAX_UPLOAD_SIZE = 2097152
