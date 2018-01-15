@@ -72,4 +72,5 @@ class PostUpdateView(UpdateView):
 class PostDeleteView(DeleteView):
     model = Post
     context_object_name = 'post'
+    template_name = 'sandbox/post_confirm_delete.html'
     success_url = reverse_lazy('post-list')
