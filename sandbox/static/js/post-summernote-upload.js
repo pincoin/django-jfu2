@@ -29,7 +29,7 @@ $(document).ready(function () {
                             '<div class="col-lg-2 col-md-3 col-sm-4 mt-2">\n' +
                             '  <div class="card h-100">\n' +
                             '    <div class="card-body">\n' +
-                            '      <img class="card-img-top" src="' + file.url + '" width="118" height="68">\n' +
+                            '      <img class="card-img-top thumbnail-image" src="' + file.url + '">\n' +
                             '    </div>\n' +
                             '    <div class="card-footer text-center">\n' +
                             '      <a href="#" class="btn-sm btn-danger">Delete</a>\n' +

@@ -34,3 +34,8 @@ img {
 body > .container {
   padding-bottom: 10px;
 }
+
+.thumbnail-image {
+    max-width: 118px;
+    max-height: 68px;
+}

@@ -25,7 +25,6 @@ INSTALLED_APPS = [
 INSTALLED_APPS += [
     'jfu2',
     'crispy_forms',
-    'easy_thumbnails',
     'sandbox',
 ]
 
