@@ -1,5 +1,5 @@
 from django.views.generic import (
-    TemplateView, ListView, DetailView
+    ListView, DetailView
 )
 from django.views.generic.edit import (
     CreateView, UpdateView, DeleteView
@@ -12,10 +12,6 @@ from .forms import (
 from .models import (
     Attachment, Post
 )
-
-
-class HomeView(TemplateView):
-    template_name = 'sandbox/home.html'
 
 
 class PostFileUploadView(FileUploadView):

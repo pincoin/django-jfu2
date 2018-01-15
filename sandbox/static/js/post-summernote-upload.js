@@ -12,23 +12,26 @@ $(document).ready(function () {
                 $nImageInput = $nEditor.find('.note-image-input');
             },
             onImageUpload: function (files) {
-                // https://github.com/blueimp/jQuery-File-Upload/wiki/API#initialization
-                // Initializes file upload widget
-                $nImageInput.fileupload({
-                    // Point to django upload handler view
-                    url: '/upload'
+                var formData = new FormData();
+
+                $.each(files, function (index, file) {
+                    formData.append('files', file);
                 });
 
-                // https://github.com/blueimp/jQuery-File-Upload/wiki/API#programmatic-file-upload
-                // Upload files programmatically for browsers with support for XHR file uploads
-                var jqXHR = $nImageInput.fileupload('send', {
-                    files: files
+                $.ajax({
+                    url: '/upload',         // Point to django upload handler view
+                    type: "post",
+                    processData: false,     // file-transfer
+                    contentType: false,     // file-transfer
+                    data: formData
                 }).done(function (data, textStatus, jqXHR) {
                     $.each(data.files, function (index, file) {
                         // Insert image into the editor
                         $sn.summernote('insertImage', file.url);
 
+                        //
                         // YOU MUST IMPLEMENT YOUR OWN CODE HERE:
+                        //
                         // Thumbnail image is appended.
                         $('#thumbnail-list').append(
                             '<div class="col-lg-2 col-md-3 col-sm-4 mt-2">\n' +

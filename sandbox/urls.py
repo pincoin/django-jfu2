@@ -6,12 +6,12 @@ from django.urls import (
 )
 
 from .views import (
-    HomeView, PostListView, PostDetailView, PostCreateView, PostUpdateView, PostDeleteView, PostFileUploadView
+    PostListView, PostDetailView, PostCreateView, PostUpdateView, PostDeleteView, PostFileUploadView
 )
 
 urlpatterns = [
     path('',
-         HomeView.as_view(), name='home'),
+         PostListView.as_view(), name='home'),
 
     path('upload',
          PostFileUploadView.as_view(), name='post-file-upload'),
