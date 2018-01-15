@@ -40,7 +40,7 @@ $(document).ready(function () {
                             '      <a href="#" class="btn-sm btn-danger">Delete</a>\n' +
                             '    </div>\n' +
                             '  </div>\n' +
-                            '</div>')
+                            '</div>');
 
                         // This hidden field must be sent in order to make a relationship.
                         $("<input>", {
