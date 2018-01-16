@@ -11,7 +11,8 @@
         } else {
             console.error('cant find jQuery, please make sure your have jQuery imported before this script');
         }
-        if (!!summernoteJQuery  ) {
+
+        if (!!summernoteJQuery) {
             summernoteJQuery('#id-{{ widget.name }}').summernote({
                 placeholder: 'Enter your message.',
                 tabsize: 2,
