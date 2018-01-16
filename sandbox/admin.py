@@ -1,5 +1,6 @@
 from django.contrib import admin
 
+from .forms import PostAdminForm
 from .models import (
     Attachment, Post
 )
@@ -16,6 +17,7 @@ class AttachmentAdmin(admin.ModelAdmin):
 
 class PostAdmin(admin.ModelAdmin):
     list_display = ('title', 'created')
+    form = PostAdminForm
     inlines = [AttachmentInline]
 
 

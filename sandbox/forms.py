@@ -2,6 +2,7 @@ from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
 from django import forms
 
+from django_summernote_ajax.widgets import SummernoteWidget
 from .models import Post
 
 
@@ -30,3 +31,12 @@ class PostAttachmentForm(PostForm):
             raise forms.ValidationError("PK must be integers.")
 
         return data
+
+
+class PostAdminForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        widgets = {
+            'body': SummernoteWidget(wrapper_class='summernote-wrapper-fixed'),
+        }
+        fields = '__all__'
